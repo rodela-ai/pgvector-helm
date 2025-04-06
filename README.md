@@ -1,7 +1,5 @@
-[![Docker Pulls](https://img.shields.io/docker/pulls/linuxsuren/pgvector)](https://hub.docker.com/r/linuxsuren/pgvector)
+### RUN THIS
 
-# pgvector-docker
-Docker image of pgvector
-
-## Background
-* https://github.com/pgvector/pgvector/issues/495
+```
+helm install pgvector ./helm/pgvector --set postgresql.password=myfavoritepassword
+```
