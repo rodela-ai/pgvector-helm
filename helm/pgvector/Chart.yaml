@@ -3,4 +3,4 @@ name: pgvector
 description: A Helm chart for PostgreSQL with pgvector extension
 type: application
 version: 0.1.0
-appVersion: "14"
+appVersion: "16"
