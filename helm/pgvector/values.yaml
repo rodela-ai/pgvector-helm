@@ -18,6 +18,13 @@ persistence:
   storageClassName: linode-block-storage-retain
 
 service:
+  type: LoadBalancer
+  port: 5432  # Add this line (uncommented)
+  ports:
+    postgresql: 5432
+  loadBalancerIP: "192.168.1.230"
+
+service:
 #  type: ClusterIP
 #  port: 5432
 ## @param primary.service.type Kubernetes Service type
@@ -27,20 +34,6 @@ service:
   ##
   ports:
     postgresql: 5432
-  ## Node ports to expose
-  ## NOTE: choose port between <30000-32767>
-  ## @param primary.service.nodePorts.postgresql Node port for PostgreSQL
-  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
-  ##
-  nodePorts:
-    postgresql: ""
-  ## @param primary.service.clusterIP Static clusterIP or None for headless services
-  ## e.g:
-  ## clusterIP: None
-  ##
-  clusterIP: ""
-  ## @param primary.service.annotations Annotations for PostgreSQL primary service
-  ##
   annotations: {}
   ## @param primary.service.loadBalancerClass Load balancer class if service type is `LoadBalancer`
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-class
